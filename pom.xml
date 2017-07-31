@@ -47,6 +47,13 @@
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
+		<!-- YAML dependency -->
+		<dependency>
+			<groupId>org.yaml</groupId>
+			<artifactId>snakeyaml</artifactId>
+		</dependency>
+
+
 
 		<!-- Redis data dependencies (data storage) -->
 		<dependency>

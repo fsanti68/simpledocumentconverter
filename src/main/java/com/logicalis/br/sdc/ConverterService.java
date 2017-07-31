@@ -10,7 +10,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -108,7 +107,6 @@ public class ConverterService implements ApplicationContextAware {
 	 * 
 	 * @return a {@link ResponseBody} object containing the base64 response and
 	 *         http code 200 (or any other http code if failed)
-	 * @throws UnsupportedEncodingException
 	 */
 	@RequestMapping(value = "/api/convert/{from}/{to}", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<byte[]> convert(@PathVariable String from, @PathVariable String to,
