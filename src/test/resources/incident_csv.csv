@@ -1,0 +1,85 @@
+"number","short_description","state","incident_state","opened_at","u_resolved_at","closed_at","comments","description"
+"INC1211023","Testing contact type","Aberto","Novo","2017-06-09 13:12:29",,"","",">>> Questions for classifying incidents:
+- Does this issue affect your ability to conduct business? Partly
+- Does this issue affect other users? A few others
+- Does this issue affect your customers? One customer
+
+===
+
+Testing contact type"
+"INC1212268","Hostname: 192.168.100.254 - Probe: cisco_monitor - Alarm ID: IE68709323-45825","Aberto","Novo","2017-07-24 14:38:14",,"","","Provided item (Hostname): 192.168.100.254
+
+===
+
+Description: The SNMP OID 'Power Supply State (0)' for SWCORE3-02 is now 'shutdown', (!= normal)."
+"INC1212269","Hostname: 192.168.100.253 - Probe: cisco_monitor - Alarm ID: IE68709323-45819","Aberto","Novo","2017-07-24 14:38:20",,"","","Provided item (Hostname): 192.168.100.253
+
+===
+
+Description: The SNMP OID 'Power Supply State (0)' for SWCORE3-01 is now 'shutdown', (!= normal)."
+"INC1212270","Hostname: WLC-DATAPREV - Probe: interface_traffic - Alarm ID: IE68709323-45771","Aberto","Novo","2017-07-24 14:41:39",,"","","Provided item (Hostname): WLC-DATAPREV
+
+===
+
+Description: The interface 'TenGigabitEthernet0/0/1' on '192.168.100.110' is down."
+"INC1212271","Hostname: WLC-DATAPREV - Probe: interface_traffic - Alarm ID: IE68709323-45999","Aberto","Novo","2017-07-24 14:47:38",,"","","Provided item (Hostname): WLC-DATAPREV
+
+===
+
+Description: The interface 'TenGigabitEthernet0/0/1' on '192.168.100.110' is down."
+"INC1212272","Hostname: 192.168.100.253 - Probe: cisco_monitor - Alarm ID: IE68709323-46009","Aberto","Novo","2017-07-24 14:48:13",,"","","Provided item (Hostname): 192.168.100.253
+
+===
+
+Description: The SNMP OID 'Power Supply State (0)' for SWCORE3-01 is now 'shutdown', (!= normal)."
+"INC1212273","Hostname: 192.168.100.254 - Probe: cisco_monitor - Alarm ID: IE68709323-46010","Aberto","Novo","2017-07-24 14:48:18",,"","","Provided item (Hostname): 192.168.100.254
+
+===
+
+Description: The SNMP OID 'Power Supply State (0)' for SWCORE3-02 is now 'shutdown', (!= normal)."
+"INC1212274","Hostname: WLC-DATAPREV - Probe: interface_traffic - Alarm ID: IE68709323-46135","Aberto","Novo","2017-07-24 14:55:40",,"","","Provided item (Hostname): WLC-DATAPREV
+
+===
+
+Description: The interface 'TenGigabitEthernet0/0/1' on '192.168.100.110' is down."
+"INC1212275","Hostname: 192.168.100.253 - Probe: cisco_monitor - Alarm ID: IE68709323-46145","Aberto","Novo","2017-07-24 14:56:14",,"","","Provided item (Hostname): 192.168.100.253
+
+===
+
+Description: The SNMP OID 'Power Supply State (0)' for SWCORE3-01 is now 'shutdown', (!= normal)."
+"INC1212276","Hostname: 192.168.100.254 - Probe: cisco_monitor - Alarm ID: IE68709323-46149","Aberto","Novo","2017-07-24 14:56:18",,"","","Provided item (Hostname): 192.168.100.254
+
+===
+
+Description: The SNMP OID 'Power Supply State (0)' for SWCORE3-02 is now 'shutdown', (!= normal)."
+"INC1212277","Hostname: 192.168.100.253 - Probe: cisco_monitor - Alarm ID: IE68709323-46311","Aberto","Novo","2017-07-24 15:06:13",,"","","Provided item (Hostname): 192.168.100.253
+
+===
+
+Description: The SNMP Agent at '192.168.100.253' in group 'Default Group' is not responding. [SWCORE3-01]"
+"INC1212278","Hostname: SWCORE3-01 - Probe: interface_traffic - Alarm ID: IE68709323-46638","Aberto","Novo","2017-07-24 15:27:26",,"","","Provided item (Hostname): SWCORE3-01
+
+===
+
+Description: The interface 'Te1/0/17' on '192.168.100.253' is down."
+"INC1212279","Hostname: WLC-DATAPREV - Probe: interface_traffic - Alarm ID: IE68709323-46694","Aberto","Novo","2017-07-24 15:31:43",,"","","Provided item (Hostname): WLC-DATAPREV
+
+===
+
+Description: The SNMP agent on '192.168.100.110' is NOT responding."
+"INC1212280","Hostname: WLC-DATAPREV - Probe: snmpget - Alarm ID: IE68709323-46655","Aberto","Novo","2017-07-24 15:34:42",,"","","The SNMP Agent at '192.168.100.110' is not responding. [WLC-DATAPREV]"
+"INC1212281","Hostname: SWCORE3-02 - Probe: interface_traffic - Alarm ID: IE68709323-48797","Aberto","Novo","2017-07-24 17:52:37",,"","","Provided item (Hostname): SWCORE3-02
+
+===
+
+Description: The interface 'Gi1/1/2' on '192.168.100.254' is down."
+"INC1212282","Hostname: SWCORE3-02 - Probe: interface_traffic - Alarm ID: IE68709323-48868","Aberto","Novo","2017-07-24 17:55:38",,"","","Provided item (Hostname): SWCORE3-02
+
+===
+
+Description: The interface 'Gi1/0/36' on '192.168.100.254' is down."
+"INC1212283","Hostname: SWCORE3-02 - Probe: interface_traffic - Alarm ID: IE68709323-49962","Aberto","Novo","2017-07-24 18:45:37",,"","","Provided item (Hostname): SWCORE3-02
+
+===
+
+Description: The interface 'Gi1/0/19' on '192.168.100.254' is down."

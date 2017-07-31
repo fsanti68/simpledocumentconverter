@@ -1,0 +1,9 @@
+# Spring properties
+spring:
+  application:
+     name: converter-service
+
+# HTTP Server
+server:
+  contextPath: /dataprevpoc
+  port: 8080   # HTTP (Tomcat) port

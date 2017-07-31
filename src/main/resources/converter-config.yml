@@ -1,0 +1,13 @@
+# Converter settings
+converter:
+  package: com.logicalis.br.sdc.converters
+  xls-to-ods: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to ods --outdir /tmp {0}
+  csv-to-ods: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to ods --outdir /tmp {0}
+  csv-to-xls: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to xls --outdir /tmp {0}
+  csv-to-html: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to html --outdir /tmp {0}
+  html-header: |
+        <html><head><style>
+          td { border-right: 1px solid gray; border-bottom: 1px solid gray; }
+          th { background-color: '#dddddd'; border-right: 1px solid gray; border-bottom: 1px solid gray; }
+          tr { vertical-align: top; }
+        </style></head><body>
