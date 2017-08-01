@@ -6,11 +6,15 @@ Nesta PoC, estão sendo utilizados os seguintes elementos:
 
 1. Redis
 
-   Utilizado para armazenar os usuários da aplicação.
+   Utilizado como repositório persistido para armazenar os usuários da aplicação.
       
 2. SpringBoot
 
-   App Container para a API
+   Framework para as Apis, provendo autenticação, autorização, endpoints REST e documentação online via Swagger.
+   
+3. StarOffice ou LibreOffice
+
+   O pacote StarOffice oferece uma ferramenta que permite, via linha de comando, converter alguns formatos de documentos e planilhas eletrônicas. Esta prova de conceito utiliza algumas destas possibilidades ao manipular formatos open document. O caminho da ferramenta _soffice_ deve ser atualizado no arquivo de configuração _config.yml_, descrito mais adiante.
 
 
 ##### Dependencies
@@ -33,7 +37,7 @@ Nesta PoC, estão sendo utilizados os seguintes elementos:
 
 ``POST https://dataprev.cps.br.swlogicalis.com/dataprevpoc/api/convert/<from>/<to>``
 
-### Executando os serviços
+### Configurando e Executando os serviços
 
 Para a prova de conceito, além do _jar_ da aplicação, foi criado também o arquivo de configuração _config.yml_:
 
