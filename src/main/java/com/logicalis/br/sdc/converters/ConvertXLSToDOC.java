@@ -121,6 +121,12 @@ public class ConvertXLSToDOC implements Converter {
 			if (headers == null)
 				headers = new String[count];
 
+			if (headers.length <= index) {
+				String[] newHeaders = new String[index + 1];
+				for (int i = 0; i < index + 1; i++)
+					newHeaders[i] = headers[i];
+				headers = newHeaders;
+			}
 			if (headers[index] == null)
 				headers[index] = value;
 		}

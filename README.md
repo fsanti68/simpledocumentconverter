@@ -35,7 +35,10 @@ Nesta PoC, estão sendo utilizados os seguintes elementos:
 
 ### Métodos
 
-``POST https://dataprev.cps.br.swlogicalis.com/dataprevpoc/api/convert/<from>/<to>``
+Conversão de documentos:
+
+	POST https://dataprev.cps.br.swlogicalis.com/dataprevpoc/api/convert/<from>/<to>
+	
 
 ### Configurando e Executando os serviços
 

@@ -27,7 +27,7 @@ public class ConvertXLSToTXT implements Converter {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	public final String FROM = "xls";
-	public final String TO = "html";
+	public final String TO = "txt";
 
 	@Override
 	public byte[] convert(Configuration config, byte[] source) throws Exception {
@@ -55,11 +55,18 @@ public class ConvertXLSToTXT implements Converter {
 			}
 			HSSFRow row = sheet.getRow(rIndex);
 			cellCount = row.getLastCellNum();
-			if (colSize == null) {
-				colSize = new int[cellCount];
-				Arrays.fill(colSize, 0);
-			}
 			for (short cIndex = 0; cIndex < cellCount; cIndex++) {
+				if (colSize == null) {
+					colSize = new int[cellCount];
+					Arrays.fill(colSize, 0);
+				}
+				if (colSize.length < cellCount) {
+					int[] newcs = new int[cellCount];
+					Arrays.fill(newcs, 0);
+					System.arraycopy(colSize, 0, newcs, 0, colSize.length);
+					colSize = newcs;
+				}
+
 				cell = row.getCell(cIndex);
 				String[] data = formatter.formatCellValue(cell).split("\n");
 				for (String s : data) {
@@ -76,7 +83,7 @@ public class ConvertXLSToTXT implements Converter {
 					maxLineSize = lineSize;
 			}
 		}
-		maxLineSize += (cellCount + 1) * 2;
+		maxLineSize += 2 + ((cellCount + 1) * 2);
 
 		char[][] line;
 		int colPos;

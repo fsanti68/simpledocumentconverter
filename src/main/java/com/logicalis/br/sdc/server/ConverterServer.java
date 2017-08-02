@@ -25,7 +25,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableRedisRepositories
 @Configuration
 @EnableSwagger2
-@ComponentScan("com.logicalis.br.dataprev")
+@ComponentScan("com.logicalis.br.sdc")
 public class ConverterServer {
 
 	@Bean

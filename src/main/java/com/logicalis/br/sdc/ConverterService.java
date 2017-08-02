@@ -63,9 +63,12 @@ public class ConverterService implements ApplicationContextAware {
 	 */
 	private Configuration getConfig() {
 		if (ctx != null) {
+			Yaml yaml = new Yaml();
 			Resource res = null;
 			try {
 				res = ctx.getResource("file:config.yml");
+				_config = yaml.loadAs(res.getInputStream(), Configuration.class);
+				logger.info("Got configuration: " + _config.toString());
 
 			} catch (Exception e) {
 				logger.warn(
@@ -73,7 +76,6 @@ public class ConverterService implements ApplicationContextAware {
 				res = ctx.getResource("classpath:converter-config.yml");
 			}
 
-			Yaml yaml = new Yaml();
 			try {
 				_config = yaml.loadAs(res.getInputStream(), Configuration.class);
 				logger.info("Got configuration: " + _config.toString());
