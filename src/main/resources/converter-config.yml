@@ -5,6 +5,7 @@ converter:
   csv-to-ods: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to ods --outdir /tmp {0}
   csv-to-xls: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to xls --outdir /tmp {0}
   csv-to-html: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to html --outdir /tmp {0}
+  doc-to-odt: /Applications/LibreOffice.app/Contents/MacOS/soffice --headless --convert-to odt --outdir /tmp {0}
   html-header: |
         <html><head><style>
           td { border-right: 1px solid gray; border-bottom: 1px solid gray; }

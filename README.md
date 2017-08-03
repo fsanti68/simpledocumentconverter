@@ -32,6 +32,7 @@ Nesta PoC, estão sendo utilizados os seguintes elementos:
 * CSV to ODS
 * CSV to XLS
 * CSV to HTML
+* DOC to ODT
 
 ### Métodos
 
@@ -52,6 +53,7 @@ Para a prova de conceito, além do _jar_ da aplicação, foi criado também o ar
       csv-to-ods: /opt/libreoffice5.4/program/soffice --headless --convert-to ods --outdir /tmp {0}
       csv-to-xls: /opt/libreoffice5.4/program/soffice --headless --convert-to xls --outdir /tmp {0}
       csv-to-html: /opt/libreoffice5.4/program/soffice --headless --convert-to html --outdir /tmp {0}
+      doc-to-odt: /opt/libreoffice5.4/program/soffice --headless --convert-to odt --outdir /tmp {0}
       html-header: |
             <html><head><style>
               td { border-right: 1px solid gray; border-bottom: 1px solid gray; }
