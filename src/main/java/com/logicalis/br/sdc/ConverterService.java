@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,9 +42,13 @@ import com.logicalis.br.sdc.model.Configuration;
 public class ConverterService implements ApplicationContextAware {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	private Configuration _config;
+
+	private final long CONFIG_EXPIRATION_MILLIS = 60000L;
 
 	private static final Map<String, Converter> converters = new HashMap<>();
+
+	private Configuration _config;
+	private long _configExpiresAt = 0L;
 
 	private ApplicationContext ctx;
 
@@ -61,29 +66,32 @@ public class ConverterService implements ApplicationContextAware {
 	 * 
 	 * @return {@link Configuration}
 	 */
-	private Configuration getConfig() {
+	private Configuration getConfig() throws RuntimeException {
+
+		final String[] sources = new String[] { "file:config.yml", "classpath:converter-config.yml" };
+
+		if (_config != null && System.currentTimeMillis() < _configExpiresAt)
+			return _config;
+
 		if (ctx != null) {
 			Yaml yaml = new Yaml();
 			Resource res = null;
-			try {
-				res = ctx.getResource("file:config.yml");
-				_config = yaml.loadAs(res.getInputStream(), Configuration.class);
-				logger.info("Got configuration: " + _config.toString());
+			for (String source : sources) {
+				try {
+					res = ctx.getResource(source);
+					_config = yaml.loadAs(res.getInputStream(), Configuration.class);
 
-			} catch (Exception e) {
-				logger.warn(
-						"\"config.yml\" unaccessible, using package provided configurations (" + e.getMessage() + ")");
-				res = ctx.getResource("classpath:converter-config.yml");
+					logger.info("Got configuration (" + source + "): " + _config.toString());
+					_configExpiresAt = System.currentTimeMillis() + CONFIG_EXPIRATION_MILLIS;
+
+					return _config;
+
+				} catch (Exception e) {
+					logger.warn("\"" + source + "\" unaccessible (" + e.getMessage() + ")");
+				}
 			}
-
-			try {
-				_config = yaml.loadAs(res.getInputStream(), Configuration.class);
-				logger.info("Got configuration: " + _config.toString());
-				return _config;
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+			if (_config == null)
+				throw new RuntimeException("Failed to get service configuration");
 		}
 		return null;
 	}
@@ -97,7 +105,8 @@ public class ConverterService implements ApplicationContextAware {
 	 * <li>XLS -&gt; DOC (Excel to Word)</li>
 	 * <li>XLS -&gt; HTML</li>
 	 * <li>XLS -&gt; ODS (Excel to Calc8)</li>
-	 * <li>XLS -&gt; TXT (Excel to text file)
+	 * <li>XLS -&gt; TXT (Excel to text file)</li>
+	 * <li>DOC -&gt; ODT (Word to Write8)</li>
 	 * </ul>
 	 * 
 	 * @param from
@@ -131,9 +140,19 @@ public class ConverterService implements ApplicationContextAware {
 
 		} catch (Exception e) {
 			logger.error("Failed to convert " + from + " to " + to, e);
-			return new ResponseEntity<>(("error: " + from + " to " + to + " - " + e.getMessage()).getBytes(),
-					HttpStatus.BAD_REQUEST);
+			byte[] errorMessage = getErrorMessage("Error converting from " + from + " to " + to, e);
+			return new ResponseEntity<>(errorMessage, HttpStatus.BAD_REQUEST);
 		}
+	}
+
+	private byte[] getErrorMessage(String msg, Exception e) {
+
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		PrintWriter writer = new PrintWriter(baos);
+		writer.println(msg);
+		e.printStackTrace(writer);
+		writer.close();
+		return baos.toByteArray();
 	}
 
 	/**

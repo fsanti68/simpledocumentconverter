@@ -12,7 +12,7 @@
 	
 	<appender name="ROLLING"
 		class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<file>dataprevpoc.log</file>
+		<file>converter.log</file>
 		<rollingPolicy
 			class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
 			<fileNamePattern>dataprevpoc-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
