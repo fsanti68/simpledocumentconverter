@@ -205,6 +205,7 @@ public class ConverterService implements ApplicationContextAware {
 			baos.close();
 			bis.close();
 			in.close();
+			file.delete();
 		}
 	}
 
