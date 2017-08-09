@@ -1,10 +1,15 @@
 package com.logicalis.br.sdc.converters;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.junit.Test;
 
 import com.logicalis.br.sdc.Converter;
@@ -31,5 +36,11 @@ public class ConvertCSVToHTMLTest extends ConverterTest {
 		FileOutputStream fos = new FileOutputStream(f);
 		fos.write(doc);
 		fos.close();
+
+		Document html = Jsoup.parse(f, "UTF-8");
+		Element element = html.select("td").first();
+		assertEquals(element.text(), "number");
+		
+		f.deleteOnExit();
 	}
 }
